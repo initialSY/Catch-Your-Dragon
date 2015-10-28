@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+body{
+	text-align:center;
+	background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+#email > *{
+	vertical-align:middle;
+	text-align:left;
+	margin-right:30px;
+}
+
+#password > *{
+	vertical-align:middle;
+	text-align:left;
+	margin-right:25px;
+}
+
+button{
+	vertical-align:middle	
+}
