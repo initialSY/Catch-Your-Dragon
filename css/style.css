@@ -8,10 +8,10 @@ body{
     -o-background-size: cover;
 }
 
-#email > *{
+#username > *{
 	vertical-align:middle;
 	text-align:left;
-	margin-right:30px;
+	margin-right:25px;
 }
 
 #password > *{
