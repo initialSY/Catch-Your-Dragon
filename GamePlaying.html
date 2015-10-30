@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CatchYourDragon_LoginPage</title>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/jquery.XYTipsWindow.2.8.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	$("#choose_fence").show();
+	$("#choose_crack").hide();
+	$("#dragon").hide();
+	})
+	
+	 var glasstype;
+	 var cracktype;
+	 function setglass1(){
+		//alert("haha");
+		glasstype = 1;
+		$("#choose_fence").hide();
+		$("#choose_crack").show();
+	 }
+	 function setglass2(){
+		glasstype = 2;
+		$("#choose_fence").hide();
+		$("#choose_crack").show();
+	 }
+	function setcrack1(){
+		cracktype = 1;
+		$("#choose_crack").hide();
+		dragonStartMove();
+	}
+	function setcrack2(){
+		cracktype = 2;
+		$("#choose_crack").hide();
+		dragonStartMove();
+	}
+	function setcrack3(){
+		cracktype = 3;
+		$("#choose_crack").hide();
+		dragonStartMove();
+	}
+	function dragonStartMove(){
+		$("#dragon").show();
+		$("#dragon").animate({'left':$(window).width(), 'top':600}, 2000, 'linear', function(){animateTruck();} );
+	}
+	function animateTruck(){
+	
+	
+	
+	
+	}
+ </script>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/box_style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body style="background-image:url(images/bg.png)">
+	<br/><br/><br/><br/>
+	<div id="choose_fence">
+	<img src="images/choosefence.png"  width="390" height="58">
+	<br /><br /><br /><br />
+	<div id="fences">
+		<img src="images/glass1.png" onclick="setglass1();">
+		<img src="images/glass2.png" onclick="setglass2();">
+	</div>
+	</div>
+	<div id="choose_crack">
+	<img src="images/choosecrack.png"  width="390" height="58">
+	<br /><br /><br /><br />
+	<div id="fences">
+		<img src="images/crack1.png" onclick="setcrack1();">
+		<img src="images/crack2.png" onclick="setcrack2();">
+		<img src="images/crack3.png" onclick="setcrack3();">
+	</div>
+	</div>
+	<div id="dragon">
+		<img src="images/dragon.png">
+	</div>
+</body>
+</html>
