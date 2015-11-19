@@ -33,7 +33,8 @@ function animateDiv(){
     var oldq = $('#dragon').offset();
     var speed = calcSpeed([oldq.top, oldq.left], newq);
     
-    $('#dragon').animate({ top: newq[0], left: newq[1] }, speed, function(){
+    $('#dragon').animate({ top: newq[0], left: newq[1] }, speed,
+     function(){
       animateDiv();        
     });
     
