@@ -55,30 +55,41 @@ function calcSpeed(prev, next) {
 
 };
 	function draw(top, left){
-		var num = Math.floor(Math.random()*4);
+		var num = Math.floor(4);
 		var canvas = document.getElementById('canvas');
 		if (canvas.getContext) {
-			var ctx = canvas.getContext('2d');
+		var ctx = canvas.getContext('2d');
 		};
+		
 		alert(num);
 		ctx.lineWidth = 5;
 		ctx.strokeStyle="#FD0";
 		ctx.beginPath();
 		ctx.arc(top,left,5,0,2*Math.PI,true);
 		ctx.fill();
-		for (var i = num; i >= 0; i--) {
+		
+		for (var j = num; j >= 0; j--) {
 			ctx.beginPath();
-		ctx.moveTo(top, left);
+		        ctx.moveTo(top, left);
 		
-		ctx.lineTo(top+Math.floor((Math.random()-i*0.3)*20),left+Math.floor((Math.random()-i*0.3)*20));
-		ctx.lineTo(top+Math.floor((Math.random()-i*0.3)*40),left+Math.floor((Math.random()-i*0.3)*40));
-		ctx.lineTo(top+Math.floor((Math.random()-i*0.3)*60),left+Math.floor((Math.random()-i*0.3)*60));
-		ctx.lineTo(top+Math.floor((Math.random()-i*0.3)*80),left+Math.floor((Math.random()-i*0.3)*80));
-		ctx.stroke();
+		        top2 = top - Math.floor((1 - j*0.5)*80);
+		        left2 = left + Math.floor((1 - j*0.5)*80);
+		
+		        ctx.lineTo(top2 + Math.floor((Math.random()-j*0.5)*20), left2 + Math.floor((Math.random()-j*0.3)*20));
+		        ctx.lineTo(top2,left2);
+		        ctx.stroke();
 		};
-		
-		
-		
+		for (var i = num; i >= 0; i--){
+			ctx.beginPath();
+			ctx.moveTo(top,left);
+			
+			top1 = top + Math.floor((1-i*0.5)*80);
+			left1 = left + Math.floor((1-i*0.5)*80);
+			
+			ctx.lineTo(top1 + Math.floor((Math.random()-i*0.5)*20), left1 + Math.floor((Math.random()-i*0.3)*20));
+			ctx.lineTo(top1,left1);
+			ctx.stroke();
+		}
 		
 		
 		
