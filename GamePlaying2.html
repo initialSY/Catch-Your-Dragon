@@ -54,13 +54,14 @@ function calcSpeed(prev, next) {
     return speed;
 
 };
+	
+	
 	function draw(top, left){
 		var num = Math.floor(4);
 		var canvas = document.getElementById('canvas');
 		if (canvas.getContext) {
-		var ctx = canvas.getContext('2d');
+			var ctx = canvas.getContext('2d');
 		};
-		
 		alert(num);
 		ctx.lineWidth = 5;
 		ctx.strokeStyle="#FD0";
@@ -68,32 +69,147 @@ function calcSpeed(prev, next) {
 		ctx.arc(top,left,5,0,2*Math.PI,true);
 		ctx.fill();
 		
+		var val = Math.random();
+		if(val > 0.75){
+		
 		for (var j = num; j >= 0; j--) {
 			ctx.beginPath();
-		        ctx.moveTo(top, left);
+		ctx.moveTo(top, left);
+		top2=top-Math.floor((1-j*0.5)*60);
+		left2=left+Math.floor((1-j*0.5)*60);
 		
-		        top2 = top - Math.floor((1 - j*0.5)*80);
-		        left2 = left + Math.floor((1 - j*0.5)*80);
+		ctx.lineTo(top2+Math.floor((Math.random()-j*0.5)*30),left2+Math.floor((Math.random()-j*0.5)*30));
 		
-		        ctx.lineTo(top2 + Math.floor((Math.random()-j*0.5)*20), left2 + Math.floor((Math.random()-j*0.3)*20));
-		        ctx.lineTo(top2,left2);
-		        ctx.stroke();
+		ctx.lineTo(top2,left2);
+		
+		ctx.stroke();
 		};
-		for (var i = num; i >= 0; i--){
+		
+		for (var i = num; i >= 0; i--) {
 			ctx.beginPath();
-			ctx.moveTo(top,left);
-			
-			top1 = top + Math.floor((1-i*0.5)*80);
-			left1 = left + Math.floor((1-i*0.5)*80);
-			
-			ctx.lineTo(top1 + Math.floor((Math.random()-i*0.5)*20), left1 + Math.floor((Math.random()-i*0.3)*20));
-			ctx.lineTo(top1,left1);
-			ctx.stroke();
+		ctx.moveTo(top, left);
+		top1=top+Math.floor((1-i*0.5)*60);
+		left1=left+Math.floor((1-i*0.5)*60);
+		ctx.lineTo(top1+Math.floor((Math.random()-i*0.5)*30),left1+Math.floor((Math.random()-i*0.5)*30));
+		
+		ctx.lineTo(top1,left1);
+	
+	
+		ctx.stroke();
+		};
+		
 		}
+		else if(val > 0.5){
+		for (var j = num; j >= 0; j--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top2=top-Math.floor((1-j*0.5)*80);
+		left2=left;
 		
+		ctx.lineTo(top2+Math.floor((Math.random()-j*0.5)*30),left2+Math.floor((Math.random()-j*0.5)*30));
 		
+		ctx.lineTo(top2,left2);
 		
-	};
+		ctx.stroke();
+		};
+		
+		for (var i = num; i >= 0; i--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top1=top;
+		left1=left+Math.floor((1-i*0.5)*80);
+		ctx.lineTo(top1+Math.floor((Math.random()-i*0.5)*30),left1+Math.floor((Math.random()-i*0.5)*30));
+		
+		ctx.lineTo(top1,left1);
+	
+	
+		ctx.stroke();
+		};
+		
+		}
+		else if(val > 0.25){
+		for (var j = num/2; j >= 0; j--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top2=top-Math.floor((1-j*0.5)*80);
+		left2=left;
+		
+		ctx.lineTo(top2+Math.floor((Math.random()-j*0.5)*30),left2+Math.floor((Math.random()-j*0.5)*30));
+		
+		ctx.lineTo(top2,left2);
+		
+		ctx.stroke();
+		};
+		
+		for (var i = num/2; i >= 0; i--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top1=top;
+		left1=left+Math.floor((1-i*0.5)*80);
+		ctx.lineTo(top1+Math.floor((Math.random()-i*0.5)*30),left1+Math.floor((Math.random()-i*0.5)*30));
+		
+		ctx.lineTo(top1,left1);
+	
+	
+		ctx.stroke();
+		};
+		for (var k = num/2; k >= 0; k--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top3=top+Math.floor((1-k*0.5)*60);
+		left3=left-Math.floor((1-k*0.5)*60);
+		ctx.lineTo(top3+Math.floor((Math.random()-k*0.5)*20),left3+Math.floor((Math.random()-k*0.5)*20));
+		
+		ctx.lineTo(top3,left3);
+	
+	
+		ctx.stroke();
+		};
+		}
+		else{	
+		for (var j = num/2; j >= 0; j--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top2=top+Math.floor((1-j*0.5)*80);
+		left2=left;
+		
+		ctx.lineTo(top2+Math.floor((Math.random()-j*0.5)*30),left2+Math.floor((Math.random()-j*0.5)*30));
+		
+		ctx.lineTo(top2,left2);
+		
+		ctx.stroke();
+		};
+		
+		for (var i = num/2; i >= 0; i--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top1=top;
+		left1=left-Math.floor((1-i*0.5)*80);
+		ctx.lineTo(top1+Math.floor((Math.random()-i*0.5)*30),left1+Math.floor((Math.random()-i*0.5)*30));
+		
+		ctx.lineTo(top1,left1);
+	
+	
+		ctx.stroke();
+		};
+		for (var k = num/2; k >= 0; k--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top3=top-Math.floor((1-k*0.5)*60);
+		left3=left+Math.floor((1-k*0.5)*60);
+		ctx.lineTo(top3+Math.floor((Math.random()-k*0.5)*20),left3+Math.floor((Math.random()-k*0.5)*20));
+		
+		ctx.lineTo(top3,left3);
+	
+	
+		ctx.stroke();
+		};
+		
+		}
+	}
+	
+	
+	
  </script>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/box_style.css" rel="stylesheet" type="text/css">
