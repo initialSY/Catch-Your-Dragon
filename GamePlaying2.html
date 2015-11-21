@@ -71,71 +71,15 @@ function calcSpeed(prev, next) {
 		var val = Math.random();
 		if(val > 0.75){
 		
-		for (var j = num; j >= 0; j--) {
-			ctx.beginPath();
-		ctx.moveTo(top, left);
-		top2=top-Math.floor((1-j*0.5)*60);
-		left2=left+Math.floor((1-j*0.5)*60);
-		
-		ctx.lineTo(top2+Math.floor((Math.random()-j*0.5)*30),left2+Math.floor((Math.random()-j*0.5)*30));
-		
-		ctx.lineTo(top2,left2);
-		
-		ctx.stroke();
-		};
-		
-		for (var i = num; i >= 0; i--) {
-			ctx.beginPath();
-		ctx.moveTo(top, left);
-		top1=top+Math.floor((1-i*0.5)*60);
-		left1=left+Math.floor((1-i*0.5)*60);
-		ctx.lineTo(top1+Math.floor((Math.random()-i*0.5)*30),left1+Math.floor((Math.random()-i*0.5)*30));
-		
-		ctx.lineTo(top1,left1);
-	
-	
-		ctx.stroke();
-		};
-		
-		}
-		else if(0.5 < val < 0.75){
-		for (var j = num; j >= 0; j--) {
-			ctx.beginPath();
-		ctx.moveTo(top, left);
-		top2=top-Math.floor((1-j*0.5)*80);
-		left2=left;
-		
-		ctx.lineTo(top2+Math.floor((Math.random()-j*0.5)*30),left2+Math.floor((Math.random()-j*0.5)*30));
-		
-		ctx.lineTo(top2,left2);
-		
-		ctx.stroke();
-		};
-		
-		for (var i = num; i >= 0; i--) {
-			ctx.beginPath();
-		ctx.moveTo(top, left);
-		top1=top;
-		left1=left+Math.floor((1-i*0.5)*80);
-		ctx.lineTo(top1+Math.floor((Math.random()-i*0.5)*30),left1+Math.floor((Math.random()-i*0.5)*30));
-		
-		ctx.lineTo(top1,left1);
-	
-	
-		ctx.stroke();
-		};
-		
-		}
-		else if(0.25 < val < 0.5){
 		for (var j = num/2; j >= 0; j--) {
 			ctx.beginPath();
 		ctx.moveTo(top, left);
-		top2=top-Math.floor((1-j*0.5)*80);
-		left2=left;
 		
-		ctx.lineTo(top2+Math.floor((Math.random()-j*0.5)*30),left2+Math.floor((Math.random()-j*0.5)*30));
+		top2=top-Math.floor((1-j)*60);
+		left2=left+Math.floor((1-j)*60);
 		
 		ctx.lineTo(top2,left2);
+		ctx.lineTo(top2+Math.floor((Math.random()-0.5)*(1-j)*140),left2+Math.floor((Math.random()-0.5)*(1-j)*140));
 		
 		ctx.stroke();
 		};
@@ -143,69 +87,125 @@ function calcSpeed(prev, next) {
 		for (var i = num/2; i >= 0; i--) {
 			ctx.beginPath();
 		ctx.moveTo(top, left);
-		top1=top;
-		left1=left+Math.floor((1-i*0.5)*80);
-		ctx.lineTo(top1+Math.floor((Math.random()-i*0.5)*30),left1+Math.floor((Math.random()-i*0.5)*30));
+		
+		top1=top+Math.floor((1-i)*60);
+		left1=left+Math.floor((1-i)*60);
 		
 		ctx.lineTo(top1,left1);
-	
+		ctx.lineTo(top1+Math.floor((Math.random()-0.5)*(1-i)*140),left1+Math.floor((Math.random()-0.5)*(1-i)*140));
 	
 		ctx.stroke();
 		};
-		for (var k = num/2; k >= 0; k--) {
+		
+		}
+		else if(0.5 < val ){
+		for (var j = num/2; j >= 0; j--) {
 			ctx.beginPath();
 		ctx.moveTo(top, left);
-		top3=top+Math.floor((1-k*0.5)*60);
-		left3=left-Math.floor((1-k*0.5)*60);
-		ctx.lineTo(top3+Math.floor((Math.random()-k*0.5)*20),left3+Math.floor((Math.random()-k*0.5)*20));
+		
+		top2=top-Math.floor((1-j)*80+Math.random()*40);
+		left2=left;
+		
+		ctx.lineTo(top2,left2);
+		ctx.lineTo(top2+Math.floor(((Math.random()-0.5)*(1-j))*140),left2+Math.floor(((Math.random()-0.5)*(1-j))*140));
+		
+		ctx.stroke();
+		};
+		
+		for (var i = num/2; i >= 0; i--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		
+		top1=top;
+		left1=left+Math.floor((1-i)*80+Math.random()*40);
+		
+		ctx.lineTo(top1,left1);
+		ctx.lineTo(top1+Math.floor(((Math.random()-0.5)*(1-i))*140),left1+Math.floor(((Math.random()-0.5)*(1-i))*140));
+
+		ctx.stroke();
+		};
+		
+		}
+		else if(0.25 < val ){
+		for (var j = 0; j >= 0; j--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		
+		top2=top-Math.floor((1-j)*80+Math.random()*30);
+		left2=left;
+
+		ctx.lineTo(top2,left2);
+		ctx.lineTo(top2+Math.floor((Math.random()-0.5)*180),left2+Math.floor((Math.random()-0.5)*180));
+		
+		ctx.stroke();
+		};
+		
+		for (var i = 0; i >= 0; i--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top1=top;
+		left1=left+Math.floor((1-i)*80+Math.random()*30);
+		
+		ctx.lineTo(top1,left1);
+	    ctx.lineTo(top1+Math.floor((Math.random()-0.5)*180),left1+Math.floor((Math.random()-0.5)*180));
+	
+		ctx.stroke();
+		};
+		for (var k = 0; k >= 0; k--) {
+			ctx.beginPath();
+		ctx.moveTo(top, left);
+		top3=top+Math.floor((1-k)*60+Math.random()*30);
+		left3=left-Math.floor((1-k)*60+Math.random()*30);
 		
 		ctx.lineTo(top3,left3);
-	
+	    ctx.lineTo(top3+Math.floor((Math.random()-0.5)*140),left3+Math.floor((Math.random()-0.5)*140));
 	
 		ctx.stroke();
 		};
 		}
 		else{	
-		for (var j = num/2; j >= 0; j--) {
+		for (var j = 0; j >= 0; j--) {
 			ctx.beginPath();
 		ctx.moveTo(top, left);
-		top2=top+Math.floor((1-j*0.5)*80);
+		top2=top+Math.floor((1-j)*80+Math.random()*30);
 		left2=left;
-		
-		ctx.lineTo(top2+Math.floor((Math.random()-j*0.5)*30),left2+Math.floor((Math.random()-j*0.5)*30));
-		
+				
 		ctx.lineTo(top2,left2);
+		ctx.lineTo(top2+Math.floor((Math.random()-0.5)*180),left2+Math.floor((Math.random()-0.5)*180));
 		
 		ctx.stroke();
 		};
 		
-		for (var i = num/2; i >= 0; i--) {
+		for (var i = 0; i >= 0; i--) {
 			ctx.beginPath();
 		ctx.moveTo(top, left);
 		top1=top;
-		left1=left-Math.floor((1-i*0.5)*80);
-		ctx.lineTo(top1+Math.floor((Math.random()-i*0.5)*30),left1+Math.floor((Math.random()-i*0.5)*30));
-		
+		left1=left-Math.floor((1-i)*80+Math.random()*30);
+				
 		ctx.lineTo(top1,left1);
+		ctx.lineTo(top1+Math.floor((Math.random()-0.5)*180),left1+Math.floor((Math.random()-0.5)*180));
 	
 	
 		ctx.stroke();
 		};
-		for (var k = num/2; k >= 0; k--) {
+		for (var k = 0; k >= 0; k--) {
 			ctx.beginPath();
 		ctx.moveTo(top, left);
-		top3=top-Math.floor((1-k*0.5)*60);
-		left3=left+Math.floor((1-k*0.5)*60);
-		ctx.lineTo(top3+Math.floor((Math.random()-k*0.5)*20),left3+Math.floor((Math.random()-k*0.5)*20));
-		
+		top3=top-Math.floor((1-k)*60+Math.random()*30);
+		left3=left+Math.floor((1-k)*60+Math.random()*30);
+				
 		ctx.lineTo(top3,left3);
-	
+		ctx.lineTo(top3+Math.floor((Math.random()-0.5)*140),left3+Math.floor((Math.random()-0.5)*140));
 	
 		ctx.stroke();
 		};
 		
 		}
-	}
+
+		
+		
+		
+	};
 	
 	
 	
