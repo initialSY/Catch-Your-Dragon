@@ -75,7 +75,6 @@ $(document).ready(function(){
 	$("#t_UserPass").formValidator({onshow:"At least 8 Characters",onfocus:"At least 8 Characters",oncorrect:"Valid Password"}).inputValidator({min:8,empty:{leftempty:false,rightempty:false,emptyerror:"Invalid Input"},onerror:"Invalid Input"});
 	$("#t_RePass").formValidator({onshow:"Re-enter Password",onfocus:"Re-enter Password",oncorrect:"Password Match"}).inputValidator({min:8,empty:{leftempty:false,rightempty:false,emptyerror:"Invalid Input"},onerror:"Invalid Input"}).compareValidator({desid:"t_UserPass",operateor:"=",onerror:"Password Unmatch"});	
 	$("#t_CheckCode").formValidator({onshow:"Input Code", onfocus:"Input Code",oncorrect:"Code Match"}).compareValidator({desid:"checkCode",operateor:"=",onerror:"Wrong Code"});
-	<!--$("#t_Email").formValidator({onshow:"6-100个字符",onfocus:"6-100个字符",oncorrect:"恭喜你,你输对了",defaultvalue:"@"}).inputValidator({min:6,max:100,onerror:"长度非法"}).regexValidator({regexp:"^([\\w-.]+)@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.)|(([\\w-]+.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)$",onerror:"格式不正确"});-->
 });
 function test1(obj)
 {
