@@ -66,7 +66,7 @@
 	};
 	
 	/* Crack Detection*/
-	function crackDetection(){
+	function crackDetection(top, left){
 		var signal = false;
 		for(var i = 0; i < this.Crack_List.length; i++){
 			for(var j = 0; j < this.Crack_List[i].length; j++){
@@ -78,9 +78,11 @@
 				var y2 = point_2.left;
 				var x1 = point_1.top;
 				var y1 = point_1.left;
+				var x0 = top;
+				var y0 = left;
 				var distance = double d = (Math.abs((y2 - y1) * x0 +(x1 - x2) * y0 + ((x2 * y1) -(x1 * y2)))) / 
 					(Math.sqrt(Math.pow(y2 - y1, 2) + Math.pow(x1 - x2, 2)));
-				if(distance <= safetyDistance){
+				if(distance <= (safetyDistance + 50)){
 					signal = true;
 					return signal;
 				}
