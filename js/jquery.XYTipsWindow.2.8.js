@@ -1,43 +1,3 @@
-/*
- * jQuery XYTipsWindow Plus @requires jQuery v1.3.2
- * Dual licensed under the MIT and GPL licenses.
- *
- * Copyright (c) xinyour (http://www.xinyour.com/)
- *
- * Autor: Await
- * webSite: http://leotheme.cn/
- * Date: 星期四 2011年05月15日
- * Version: 2.8.0
- **********************************************************************
- * @example
- * $("#example").XYTipsWindow();
- **********************************************************************
- * XYTipsWindow o参数可配置项：
- *		    ___title : 窗口标题文字;
- *	  	    ___boxID : 弹出层ID(默认随机);
- *	 	  ___content : 内容(可选内容为){ text | id | img | swf | url | iframe};
- *	 	    ___width : 窗口宽度(默认宽度为300px);
- *	 	   ___height : 窗口离度(默认高度为200px);
- *	   ___titleClass : 窗口标题样式名称;
- *	 	  ___closeID : 关闭窗口ID;
- *	    ___triggerID : 相对于这个ID定位;[暂时取消此功能]
- *	   ___boxBdColor : 弹出层外层边框颜色(默认值:#E9F3FD);
- *   ___boxBdOpacity : 弹出层外层边框透明度(默认值:1,不透明);
- * ___boxWrapBdColor : 弹出层内部边框颜色(默认值:#A6C9E1);
- *  ___windowBgColor : 遮罩层背景颜色(默认值:#000000);
- *___windowBgOpacity : 遮罩层背景透明度(默认值:0.5);
- *		     ___time : 自动关闭等待时间;(单位毫秒);
- *		     ___drag : 拖动手柄ID[当指定___triggerID的时候禁止拖动];
- * ___dragBoxOpacity : 设置窗口拖动时窗口透明度(默认值:1,不透明);
- *	    ___showTitle : 是否显示标题(布尔值 默认为true);
- *	    ___showBoxbg : 是否显示弹出层背景(布尔值 默认为true);
- *		   ___showbg : 是否显示遮罩层(布尔值 默认为false);
- *	  	   ___button : 数组，要显示按钮的文字;
- *		 ___callback : 回调函数，默认返回所选按钮显示的文 ;
- *		  ___offsets : 设定弹出层位置,默认居中;内置固定位置浮动:left-top(左上角);right-top(右上角);left-bottom(左下角);right-bottom(右下角);middle-top(居中置顶);middle-bottom(居中置低);left-middle(靠左居中);right-middle(靠右居中);
- *		      ___fns : 弹出窗口后执行的函数;
- **********************************************************************/
- /* 转载请注明出处：懒人之家 www.lanrenzhijia.com */
 ;(function(){
 	$.XYTipsWindow=function(o){
 		defaults = $.extend({
@@ -77,11 +37,10 @@
 		return r;
 	};
 	$.extend($.XYTipsWindow,{
-		//初始化
 		init: function (o){
 			BOXID = o;
 			if ($("#"+o.___boxID).length>0){
-				alert("对不起，创建弹出层失败！窗口“"+o.___boxID+"”已存在！");
+				alert("Sorry, failed to create pop-up! Window“"+o.___boxID+"”already exist!");
 				return false;
 			};
 			var $box = $("#"+o.___boxID);
@@ -123,7 +82,7 @@
 		getID: function(){
 			return thisID = BOXID.___boxID;
 		},
-		//构造弹出层
+		//construct pop-up
 		showBox: function(o) {
 			var $titleHeight = o.___showTitle!=true ? 1 : 33,
 				$borderHeight = o.___showTitle!=true ? 0 : 10;
@@ -220,7 +179,6 @@
 				});
 				$boxWrap.css({left:"0",top:"0"});
 			};
-			//定位弹出层
 			var TOP = -1;
 				$.XYTipsWindow.getDomPosition(o);
 			var $location = o.___offsets;
@@ -228,36 +186,36 @@
 			var est = isIE6 ? (o.___triggerID!="" ? 0 : document.documentElement.scrollTop) : "";
 			if(o.___offsets=="" || o.___offsets.constructor == String){
 				switch($location){
-					case("left-top")://左上角
+					case("left-top"):
 						$location={left:"0px",top:"0px"+est};
 						TOP=0;
 						break;
-					case("left-bottom")://左下角
+					case("left-bottom"):
 						$location={left:"0px",bottom:"0px"};
 						break;
-					case("right-top")://右上角
+					case("right-top"):
 						$location={right:"0px",top:"0px"+est};
 						TOP=0;
 						break;
-					case("right-bottom")://右下角
+					case("right-bottom"):
 						$location={right:"0px",bottom:"0px"};
 						break;
-					case("middle-top")://居中置顶
+					case("middle-top"):
 						$location={left:"50%",marginLeft:-parseInt($box.width()/2)+"px",top:"0px"+est};
 						TOP=0;
 						break;
-					case("middle-bottom")://居中置低
+					case("middle-bottom"):
 						$location={left:"50%",marginLeft:-parseInt($box.width()/2)+"px",bottom:"0px"};
 						break;
-					case("left-middle")://左边居中
+					case("left-middle"):
 						$location={left:"0px",top:"50%"+est,marginTop:-parseInt($box.height()/2)+"px"+est};
 						TOP=$getPageSize[1]/2-$box.height()/2;
 						break;
-					case("right-middle")://右边居中
+					case("right-middle"):
 						$location={right:"0px",top:"50%"+est,marginTop:-parseInt($box.height()/2)+"px"+est};
 						TOP=$getPageSize[1]/2-$box.height()/2;
 						break;
-					default://默认为居中
+					default:
 						$location={left:"50%",marginLeft:-parseInt($box.width()/2)+"px",top:"50%"+est,marginTop:-parseInt($box.height()/2)+"px"+est};
 						TOP=$getPageSize[1]/2-$box.height()/2;
 						break;
@@ -331,7 +289,7 @@
 				$box.appendTo($wrap);
 			};
 		},
-		//装载弹出层内容
+		//load pop-up content
 		contentBox: function (o) {
 			var $box = $("#"+o.___boxID);
 			var $width = parseInt(o.___width) > 1000 ? 1000 : parseInt(o.___width),
@@ -353,7 +311,7 @@
 						$contentID.html("<p class='boxLoading'>loading...</p>");
 					},
 					error:function(){
-						$contentID.html("<p class='boxError'>加载数据出错...</p>");
+						$contentID.html("<p class='boxError'>Error Loading Data...</p>");
 					},
 					success:function(html){
 						$contentID.html("<img src="+$content+" alt='' />");
@@ -411,7 +369,7 @@
 				});
 			};
 		},
-		//对话模式
+		//dialogue mode 
 		ask:function(o){
 			var $box = $("#"+o.___boxID);
 				$boxDialog = $(".___boxDialog",$box);
@@ -438,14 +396,12 @@
 				}).click(function() {
 					var $this = this;
 					if(o.___callback != "" && $.isFunction(o.___callback)) {
-						//设置回调函数返回值很简单，就是回调函数名后加括号括住的返回值就可以了。
 						o.___callback(map[$this.value]);
 					};
 					$.XYTipsWindow.removeBox(o);
 				});
 			};
 		},
-		//获取要吸附的ID的left和top值并重新计算弹出层left和top值
 		getDomPosition: function (o) {
 			var $box = $("#"+o.___boxID);
 			var	cw=document.documentElement.clientWidth,ch=document.documentElement.clientHeight;
@@ -454,7 +410,7 @@
 			$getPageSize = new Array();
 			$getPageSize.push(cw,ch,sw,sh,sl,st);
 		},
-		//设置窗口的zIndex
+		
 		setBoxzIndex: function (o) {
 			$XYTipsWindowarr.push(document.getElementById(o.___boxID+"parent"));//存储窗口到数组
 			var ___event = "mousedown" || "click";
@@ -466,7 +422,7 @@
 				this.style.zIndex = 891208;
 			});
 		},
-		//写入CSS样式
+		
 		addStyle : function(s) {
 			var T = this.style;
 			if(!T){
@@ -476,7 +432,7 @@
 			};
 			T.styleSheet && (T.styleSheet.cssText += s) || T.appendChild(document.createTextNode(s));
 		},
-		//绑定拖拽
+		
 		dragBox: function (o){
 			var $moveX = 0,$moveY = 0,
 				drag = false;
@@ -528,7 +484,7 @@
 				});
 			});
 		},
-		//关闭弹出层
+		
 		removeBox: function (){
 			var $box = $("#"+BOXID.___boxID);
 			var $boxbg = $("#XYTipsWindowBg");
@@ -548,7 +504,6 @@
 				};
 			};
 		},
-		//健盘事件，当按Esc的时候关闭弹出层
 		keyDown: function(o) {
 			document.onkeydown = function(e) {
 				e = e || event;

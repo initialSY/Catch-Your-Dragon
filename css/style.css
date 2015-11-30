@@ -12,12 +12,18 @@ body{
 	vertical-align:middle;
 	text-align:left;
 	margin-right:25px;
+	position:relative;
 }
 
 #password > *{
 	vertical-align:middle;
 	text-align:left;
 	margin-right:25px;
+	position:relative;
+}
+
+.input{
+	position:absolute;
 }
 
 button{

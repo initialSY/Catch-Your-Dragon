@@ -78,15 +78,15 @@ $(document).ready(function(){
 });
 function test1(obj)
 {
-	if(obj.value=="全角字符当做1个长度")
+	if(obj.value=="character length as 1")
 	{
 		$.formValidator.getInitConfig("1").wideword = false;
-		obj.value = "全角字符当做2个长度";
+		obj.value = "character length as 2";
 	}
 	else
 	{
 		$.formValidator.getInitConfig("1").wideword = true;
-		obj.value = "全角字符当做1个长度";
+		obj.value = "character length as 1";
 	}
 	
 }
@@ -129,7 +129,7 @@ function test1(obj)
 
 <!--Initialize Registration-->
     <div class="reg">
-        <form action="userRegister.php" method="post" name="form1" id="form1" onload="createCode()">
+        <form action="" method="post" name="form1" id="form1" onload="createCode()">
             <dl>
                 <dt class="f14 b">Account Information</dt>
                 <dd><span class="title">Username：</span><input class="reg_input" name="t_UserName" id="t_UserName" onblur="checkusername(this.value);" type="text" /><span id="t_UserNameTip" class="onshow"></span></dd>
