@@ -98,9 +98,9 @@ function test1(obj)
             code = "";
             var codeLength = 6;
             var checkCode = document.getElementById("checkCode");
-            var selectChar = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+            var selectChar = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
             for (var i = 0; i < codeLength; i++) {
-                var charIndex = Math.floor(Math.random() * 62);
+                var charIndex = Math.floor(Math.random() * 36);
                 code += selectChar[charIndex];
             }
             //       alert(code);
@@ -129,7 +129,7 @@ function test1(obj)
 
 <!--Initialize Registration-->
     <div class="reg">
-        <form action="" method="post" name="form1" id="form1" onload="createCode()">
+        <form action="userRegister.php" method="post" name="form1" id="form1" onload="createCode()">
             <dl>
                 <dt class="f14 b">Account Information</dt>
                 <dd><span class="title">Username：</span><input class="reg_input" name="t_UserName" id="t_UserName" onblur="checkusername(this.value);" type="text" /><span id="t_UserNameTip" class="onshow"></span></dd>
