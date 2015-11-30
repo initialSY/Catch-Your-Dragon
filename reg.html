@@ -134,7 +134,10 @@ function test1(obj)
                 <dt class="f14 b">Account Information</dt>
                 <dd><span class="title">Username：</span><input class="reg_input" name="t_UserName" id="t_UserName" onblur="checkusername(this.value);" type="text" /><span id="t_UserNameTip" class="onshow"></span></dd>
                 <dd><span class="title">Password：</span><input class="reg_input" onblur="return checkpasswd(this);" id="t_UserPass" name="t_UserPass" type="password"/><span id="t_UserPassTip" class="onshow"></span></dd>
-                
+                <dd><span class="title">Confirm Password：</span><input onblur="checkdoublepassword();" class="reg_input" type="password" id="t_RePass" name="t_RePass"/><span id="t_RePassTip" class="onshow"></span></dd>
+                <dd><span class="title">Verification Code：</span><input id="t_CheckCode" class="reg_input_pic" name="t_CheckCode" type="text" maxlength="6" />
+                <input type="text"  readonly="readonly" id="checkCode" class="unchanged" style="width: 80px; text-align:center"  />
+        <input type="button" value="Refresh" onClick="createCode()" style="background:#09C;color:#FFF;width:55px;border-radius: 6px;text-align:center;"/><span id="t_CheckCodeTip" class="onshow"></span></dd>
             </dl>
             <div class="f_reg_but"><input id="button" name="button" type="submit" value="Register" style="margin:40px auto 0 auto;height:30px;width:180px;background:#09C;color:#FFF;font-size:18px;text-align:center;line-height:30px;border-radius: 6px;"/></div>
         </form>                              
